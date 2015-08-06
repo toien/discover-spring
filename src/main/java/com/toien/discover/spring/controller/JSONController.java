@@ -3,8 +3,11 @@ package com.toien.discover.spring.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.toien.discover.spring.vo.Person;
@@ -42,4 +45,34 @@ public class JSONController {
 		return new Person("SSH", 133);
 		
 	}
+	
+	@RequestMapping(value="/create", method = RequestMethod.POST, consumes="application/json;charset=UTF-8")
+	public Person create(@RequestBody Person p) {
+		
+		System.out.println(p);
+		
+		return p;
+	}
+	
+	@RequestMapping(value="/put", method = RequestMethod.PUT)
+	public Person put(@RequestBody Person p) {
+		
+		System.out.println(p);
+		
+		return p;
+	}
+	
+	@RequestMapping(value="/putform", method = RequestMethod.PUT)
+	public Person form(@RequestParam String name) {
+		
+		System.out.println(name);
+		
+		return new Person(name, 22);
+	}
+	
+	@RequestMapping(value="/putjson", method = RequestMethod.PUT)
+	public Person putjson(@RequestBody Person p) {
+		return p;
+	}
+	
 }
