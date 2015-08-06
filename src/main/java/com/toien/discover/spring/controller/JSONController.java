@@ -3,17 +3,15 @@ package com.toien.discover.spring.controller;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/json")
 public class JSONController {
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public Map<String, Object> getUser(
-			@PathVariable(value = "id") String id) {
+	@RequestMapping(value = "/map", method = RequestMethod.GET)
+	public Map<String, Object> getMap() {
 
 		Map<String, Object> result = new HashMap<String, Object>();
 
@@ -23,5 +21,9 @@ public class JSONController {
 
 		return result;
 
+	}
+	@RequestMapping(value = "/string", method = RequestMethod.GET)
+	public String getString() {
+		return "Shit";
 	}
 }
