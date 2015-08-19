@@ -4,6 +4,8 @@ public class Person {
 	String name;
 
 	int age;
+	
+	Pet pet;
 
 	public Person() {
 	}
@@ -21,12 +23,20 @@ public class Person {
 		return name;
 	}
 
+	public Pet getPet() {
+		return pet;
+	}
+
 	public void setAge(int age) {
 		this.age = age;
 	}
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
 	}
 
 }

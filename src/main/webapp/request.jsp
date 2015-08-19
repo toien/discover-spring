@@ -41,10 +41,14 @@
 				url : "/discover-spring/json/put",
 				type : "PUT",
 				contentType : "application/json;chaset=UTF-8",
-				data : JSON.stringify({
+				data : JSON.stringify([{
 					"name" : "Hell",
-					"age" : 43
-				}),
+					"age" : 43,
+					"pet": {
+						id: 3,
+						nickname: "asshole"
+					}
+				}]),
 				dataType : "json"
 			});
 		}

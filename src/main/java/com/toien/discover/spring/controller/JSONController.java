@@ -2,6 +2,7 @@ package com.toien.discover.spring.controller;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.RequestBody;
@@ -54,11 +55,11 @@ public class JSONController {
 	}
 	
 	@RequestMapping(value="/put", method = RequestMethod.PUT)
-	public Person put(@RequestBody Person p) {
+	public Person put(@RequestBody Person[] persons) {
 		
-		System.out.println(p);
+		System.out.println(persons);
 		
-		return p;
+		return persons[0];
 	}
 	
 	@RequestMapping(value="/putform", method = RequestMethod.PUT)
