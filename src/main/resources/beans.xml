@@ -14,7 +14,10 @@
 	
 	<bean id="accountListener" class="com.toien.discover.spring.aop.aspect.AccountListener"></bean>
 	<aop:config>
-		<aop:pointcut id="transfer" expression="execution(* com.toien.discover.spring.aop.service.AccountService.*(..))" />
+	
+		<!-- <aop:pointcut id="transfer" expression="execution(* com.toien.discover.spring.aop.service.AccountService.*(..))" /> -->
+		<aop:pointcut id="transfer" expression="@annotation(com.toien.discover.spring.anno.SysLog)" />
+		
 		<aop:aspect ref="accountListener">
 			<aop:after-returning pointcut-ref="transfer" method="listen" />
 		</aop:aspect>
