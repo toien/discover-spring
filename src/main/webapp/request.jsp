@@ -22,7 +22,7 @@
 		</p>
 	</form:form>
 
-	<script src="/discover-spring/jquery-1.11.2.js"></script>
+	<script src="/discover-spring/resources/jquery-1.11.2.js"></script>
 	<script>
 		function post() {
 			$.ajax({

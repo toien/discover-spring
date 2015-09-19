@@ -21,7 +21,7 @@ public class FileUploadController {
 			try {
 				byte[] bytes = file.getBytes();
 				BufferedOutputStream stream = new BufferedOutputStream(
-						new FileOutputStream(new File("D:/tmp/upload/" + name)));
+						new FileOutputStream(new File("D:/tmp/upload/" + file.getOriginalFilename())));
 				stream.write(bytes);
 				stream.close();
 				return "You successfully uploaded " + name + "!";
