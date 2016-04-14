@@ -1,4 +1,4 @@
-package com.toien.discover.spring.controller;
+package com.toien.discover.spring.web.controller;
 
 import java.io.IOException;
 

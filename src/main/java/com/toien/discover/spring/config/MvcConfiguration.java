@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import com.toien.discover.spring.interceptor.WrappedResponseInterceptor;
+import com.toien.discover.spring.web.interceptor.WrappedResponseInterceptor;
 
 @Configuration
 @ComponentScan(basePackages = "com.toien.discover.spring")
@@ -26,7 +26,7 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 		resolver.setSuffix(".jsp");
 		return resolver;
 	}
-	
+
 	@Bean(name = "multipartResolver")
 	public MultipartResolver getMultipartResolver() {
 		CommonsMultipartResolver resolver = new CommonsMultipartResolver();
@@ -37,8 +37,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**", "/**").addResourceLocations(
-				"/resources/", "/");
+		registry.addResourceHandler("/resources/**", "/**")
+				.addResourceLocations("/resources/", "/");
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.toien.discover.spring.interceptor;
+package com.toien.discover.spring.web.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
