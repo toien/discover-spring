@@ -5,10 +5,10 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.stereotype.Service;
 
-@Service("serviceB")
+//@Service("serviceB")
 public class ServiceB implements BeanNameAware {
 
-	private ServiceC serviceC;
+	protected ServiceC serviceC;
 
 	public ServiceB() {
 		System.out.println("### ServiceB Constructing ###");
@@ -25,5 +25,4 @@ public class ServiceB implements BeanNameAware {
 		System.out.println("### Setting Name to ServiceB");
 
 	}
-
 }
