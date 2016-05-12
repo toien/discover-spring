@@ -13,6 +13,9 @@
 	<input type="button" value="put" onclick="put()">
 	<br>
 	<input type="button" value="putJson" onclick="putJson()">
+	<br>
+	<input type="button" value="getJsonP Hello" onclick="getJsonP()">
+	<input type="button" value="getJsonP Hello 2" onclick="getJsonP2()">
 	
 	<hr />
 	<form:form method="put" action="json/putform">
@@ -23,6 +26,7 @@
 	</form:form>
 
 	<script src="/discover-spring/resources/jquery-1.11.2.js"></script>
+	
 	<script>
 		function post() {
 			$.ajax({
@@ -64,6 +68,44 @@
 				}),
 				dataType : "json"
 			});
+		}
+		
+		function getJsonP() {
+			$.ajax({
+				url : "http://127.0.0.1:8080/discover-spring/jsonp/hello",
+				type : "GET",
+				contentType : "application/json;chaset=UTF-8",
+				data : {
+					"name" : "hello"
+				},
+				jsonpCallback: "jsonpCallback",
+				dataType : "jsonp"
+			}).done(function(resp) {
+				debugger
+			}).error(function(resp) {
+				debugger
+			});
+		}
+		
+		function getJsonP2() {
+			$.ajax({
+				url : "http://127.0.0.1:8080/discover-spring/jsonp/hello2",
+				type : "GET",
+				contentType : "application/json;chaset=UTF-8",
+				data : {
+					"name" : "hello"
+				},
+				jsonpCallback: "jsonpCallback",
+				dataType : "jsonp"
+			}).done(function(resp) {
+				debugger
+			}).error(function(resp) {
+				debugger
+			});
+		}
+		
+		function jsonpCallback(data) {
+			alert(data);
 		}
 	</script>
 </body>

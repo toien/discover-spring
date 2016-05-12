@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import com.toien.discover.spring.web.interceptor.WrappedResponseInterceptor;
 
 @Configuration
-@ComponentScan(basePackages = "com.toien.discover.spring")
+@ComponentScan(basePackages = "com.toien.discover.spring.web")
 @EnableWebMvc
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
@@ -37,8 +37,8 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/**", "/**")
-				.addResourceLocations("/resources/", "/");
+		registry.addResourceHandler("/resources/**")
+				.addResourceLocations("/resources/");
 	}
 
 	@Override

@@ -5,7 +5,7 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.stereotype.Service;
 
-//@Service("serviceC")
+@Service("serviceC")
 public class ServiceC implements BeanNameAware {
 
 	public ServiceC() {
