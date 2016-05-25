@@ -1,3 +1,5 @@
+<%@ page pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
@@ -16,17 +18,18 @@
 	<br>
 	<input type="button" value="getJsonP Hello" onclick="getJsonP()">
 	<input type="button" value="getJsonP Hello 2" onclick="getJsonP2()">
-	
+
 	<hr />
 	<form:form method="put" action="json/putform">
 		<p class="submit">
-			<input name="name" type="text" value="Put As Form" />
-			<input type="submit" value="Put As Form" />
+			<input name="name" type="text" value="Put As Form" /> <input type="submit"
+				value="Put As Form" />
 		</p>
 	</form:form>
 
-	<script src="/discover-spring/resources/jquery-1.11.2.js"></script>
-	
+	<script src="resources/jquery-1.11.2.js"></script>
+	<script src="resources/main.js"></script>
+
 	<script>
 		function post() {
 			$.ajax({
@@ -45,18 +48,18 @@
 				url : "/discover-spring/json/put",
 				type : "PUT",
 				contentType : "application/json;chaset=UTF-8",
-				data : JSON.stringify([{
+				data : JSON.stringify([ {
 					"name" : "Hell",
 					"age" : 43,
-					"pet": {
-						id: 3,
-						nickname: "asshole"
+					"pet" : {
+						id : 3,
+						nickname : "asshole"
 					}
-				}]),
+				} ]),
 				dataType : "json"
 			});
 		}
-		
+
 		function putJson() {
 			$.ajax({
 				url : "/discover-spring/json/putjson?_method=put",
@@ -69,7 +72,7 @@
 				dataType : "json"
 			});
 		}
-		
+
 		function getJsonP() {
 			$.ajax({
 				url : "http://127.0.0.1:8080/discover-spring/jsonp/hello",
@@ -78,7 +81,7 @@
 				data : {
 					"name" : "hello"
 				},
-				jsonpCallback: "jsonpCallback",
+				jsonpCallback : "jsonpCallback",
 				dataType : "jsonp"
 			}).done(function(resp) {
 				debugger
@@ -86,26 +89,24 @@
 				debugger
 			});
 		}
-		
+
+		var jsonpCallback = $.noop;
+
 		function getJsonP2() {
 			$.ajax({
-				url : "http://127.0.0.1:8080/discover-spring/jsonp/hello2",
+				url : "http://localhost:8080/discover-spring/jsonp/hello2",
 				type : "GET",
 				contentType : "application/json;chaset=UTF-8",
 				data : {
 					"name" : "hello"
 				},
-				jsonpCallback: "jsonpCallback",
+				jsonpCallback : "jsonpCallback",
 				dataType : "jsonp"
 			}).done(function(resp) {
 				debugger
 			}).error(function(resp) {
 				debugger
 			});
-		}
-		
-		function jsonpCallback(data) {
-			alert(data);
 		}
 	</script>
 </body>

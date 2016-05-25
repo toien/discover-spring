@@ -1,3 +1,4 @@
+console.log('changed main.js 3');
 function Croper() {
 	this.el = '#component';
 
@@ -157,5 +158,3 @@ Croper.prototype = {
 		context.drawImage(img, deltaCoodi.x, deltaCoodi.y, imgTrueWidthInView, imgTrueHeightInView, 0, 0, viewWidth, viewHeight);
 	}
 };
-
-var croper = new Croper();
